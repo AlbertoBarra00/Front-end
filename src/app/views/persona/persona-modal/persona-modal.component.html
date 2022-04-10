@@ -1,0 +1,42 @@
+<mat-form-field appearance="fill">
+  <mat-label>Nombres</mat-label>
+  <input matInput placeholder="nombres" [(ngModel)] = "persona.nombres">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Apellidos</mat-label>
+  <input matInput placeholder="apellidos" [(ngModel)] = "persona.apellidos">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Segundo apellido</mat-label>
+  <input matInput placeholder="segundoapellido" [(ngModel)] = "persona.segundoapellido">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Edad</mat-label>
+  <input matInput placeholder="edad" [(ngModel)] = "persona.edad">
+</mat-form-field>
+
+<mat-radio-group aria-label="Select an option" [(ngModel)] = "persona.sexo">
+  <mat-radio-button value="Masculino">Masculino</mat-radio-button>
+  <mat-radio-button value="Femenino">Femenino</mat-radio-button>
+</mat-radio-group>
+
+
+<mat-form-field appearance="fill">
+  <mat-label *ngIf="persona.pais">{{persona.pais.nombre}}</mat-label>
+  <mat-select matInput placeholder="Seleccione un país" [(ngModel)] = "persona.pais">
+      <mat-option *ngFor="let p of pais" [value] = "p">
+          {{p.nombre}}
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button matt-button color="accent" (click)="aceptar()">
+  Aceptar
+</button>
+
+<button matt-button color="accent" (click)="cancelar()">
+  Cancelar
+</button>
